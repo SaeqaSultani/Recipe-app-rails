@@ -1,0 +1,10 @@
+<% if @recipes.length < 1 %>
+  <h2>No Public Recipe to Display, Create one first!</h2>
+<% end %>
+
+<% @recipes.each_with_index do |recipe, index| %>
+  <div id="<%= index %>">
+    <h2> <%= link_to recipe.name, recipe_path(recipe.id)%> </h2>
+    <p>By: <%= recipe.user.name %></p>
+  </div>
+<% end %>
