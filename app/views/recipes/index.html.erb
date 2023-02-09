@@ -1,0 +1,11 @@
+<% if @recipes.length < 1 %>
+  <h2>No Recipe to Display, Create one first!</h2>
+<% end %>
+
+<% @recipes.each_with_index do |recipe, index| %>
+  <div id="<%= index %>">
+    <h2> <%= link_to recipe.name, recipe_path(recipe.id)%> </h2>
+    <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, form: {  data: { turbo: :false } }%>
+    <p><%= recipe.description %></p>
+  </div>
+<% end %>

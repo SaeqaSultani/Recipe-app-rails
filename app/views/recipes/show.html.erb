@@ -1,0 +1,13 @@
+<div class='recipe_details'>
+  <h2> <%= @recipe.name %> </h2>
+  <div>
+    <p>Preparetion time: <%= @recipe.preparation_time %></p>
+    <label for="public"> Public</label>
+    <input type="checkbox" id="public" name="public" <%=@recipe.public && "checked" %>>
+  </div>
+  <p>Cooking time: <%= @recipe.cooking_time %></p>
+  <p>Steps go here...</p>
+
+  <button>Generate shopping list</button>
+  <button>Add ingredient</button>
+</div>
