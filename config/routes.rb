@@ -4,7 +4,11 @@ Rails.application.routes.draw do
   # get 'foods/new'
   devise_for :users
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
+ food-list
   # resources :foods, :only => [:index, :create, :new]
+
+  resources :recipes, only: [:index, :show, :destroy]
+ development
   # Defines the root path route ("/")
   # root "articles#index"
 
