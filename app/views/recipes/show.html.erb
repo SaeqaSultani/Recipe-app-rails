@@ -27,8 +27,8 @@
           <td class="border border-slate-600 p-4"><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td> 
           <td class="border border-slate-600 p-4">$<%= recipe_food.food.price * recipe_food.quantity %></td>  
           <td>  
-            <%= link_to 'Modify' %>
-            <%= link_to 'Remove' %>
+            <%= button_to 'Modify' %>
+            <%= button_to 'Remove', recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete, form: {  data: { turbo: :false } }%>
           </td>
         </tr>
       <% end %>
