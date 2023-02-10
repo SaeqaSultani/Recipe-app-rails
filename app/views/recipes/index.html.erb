@@ -5,7 +5,9 @@
 <% @recipes.each_with_index do |recipe, index| %>
   <div id="<%= index %>">
     <h2> <%= link_to recipe.name, recipe_path(recipe.id)%> </h2>
-    <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, form: {  data: { turbo: :false } }%>
+    <% if recipe.user_id == @current_user.id %>
+      <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, form: {  data: { turbo: :false } }%>
+    <% end %>
     <p><%= recipe.description %></p>
   </div>
 <% end %>
