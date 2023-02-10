@@ -8,6 +8,34 @@
   <p>Cooking time: <%= @recipe.cooking_time %></p>
   <p>Steps go here...</p>
 
-  <button>Generate shopping list</button>
+  <%= link_to 'Generate Shopping List'%>
+  <% if @recipe.user_id == @current_user.id %>
   <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) %>
+  <% end %>
+
+  <table class="m-auto border border-slate-500">
+    <thead>
+      <tr>
+        <th class="border border-slate-600 p-4"> Food </th>
+        <th class="border border-slate-600 p-4"> Quantity </th>
+        <th class="border border-slate-600 p-4"> Value </th>
+        <th class="border border-slate-600 p-4"> Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.each do |recipe_food| %>
+        <tr>
+          <td class="border border-slate-600 p-4"><%= recipe_food.food.name %></td>
+          <td class="border border-slate-600 p-4"><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td> 
+          <td class="border border-slate-600 p-4">$<%= recipe_food.food.price * recipe_food.quantity %></td>  
+          <td> 
+          <% if @recipe.user_id == @current_user.id %>
+            <%= button_to 'Modify' %>
+            <%= button_to 'Remove', recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete, form: {  data: { turbo: :false } }%>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+    </tbody>
 </div>

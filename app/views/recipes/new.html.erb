@@ -1,0 +1,27 @@
+<h1>Add a New Recipe</h1>
+<%= form_with model: @recipe, url: recipes_path   do |form| %>
+
+    <div class="mb-3">
+     <%= form.label :name %><br>
+     <%= form.text_field :name, placeholder: "Enter recipe name" %>
+   </div>
+    <div class="mb-3">
+         <%= form.label :description %><br>
+     <%= form.text_area :description, placeholder: "Enter recipe description" %>
+     </div>
+     <div class="mb-3">
+         <%= form.label :preparation_time %><br>
+     <%= form.text_field :preparation_time,  placeholder: "E.g 1h 30mins" %>
+     </div>
+     <div class="mb-3">
+        <%= form.label :cooking_time %><br>
+        <%= form.text_field :cooking_time,  placeholder: "E.g 30mins" %>
+     </div>
+     <div class="mb-3">
+      <%= form.label :public %><br>
+      <%= form.select :public, [[false], [true]]%>
+   </div>
+    <div class="mb-3">
+      <%= form.submit "Add New Recipe"%>
+     </div>
+  <% end %>
