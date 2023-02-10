@@ -1,6 +1,6 @@
 class GeneralShoppingListController < ApplicationController
   def index
-    @recipe_foods = RecipeFood.all
+    @recipe_foods = RecipeFood.includes(:food).all
     @shopping_list = []
     @total = 0
     @recipe_foods.each do |recipe_food|
