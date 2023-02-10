@@ -11,7 +11,10 @@
         <%= form.select :measurement_unit, [["grams"], ["kilos"], ["liters"], ["milliliters"]]%>
      </div>
      <div class="mb-3">
-     <%= form.text_area :price, placeholder:"Enter Your Price", class:"form-control" %>
+     <%= form.text_field :price, placeholder:"Enter Your Price", class:"form-control" %>
+     </div>
+     <div class="mb-3">
+     <%= form.number_field :quantity, in: 1.0..99999999.0, placeholder:"Enter The Quantity", class:"form-control" %>
      </div>
     <div class="mb-3">
       <%= form.submit "Add New Food", class:"bg-red-500 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded" %>
