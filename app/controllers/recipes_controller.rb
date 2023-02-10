@@ -13,12 +13,14 @@ class RecipesController < ApplicationController
   end
 
   def index
-    @recipes = Recipe.where(user_id: current_user)
+    @recipes = Recipe.where(user_id: current_user).or(Recipe.where(public: true))
+    @current_user = current_user
   end
 
   def show
     @recipe = Recipe.find(params[:id])
     @recipe_foods = RecipeFood.where(recipe_id: params[:id])
+    @current_user = current_user
   end
 
   def destroy
