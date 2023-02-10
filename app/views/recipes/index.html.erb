@@ -1,13 +1,21 @@
+<div class="container p-3 rounded w-50">
+<div class="wrapper text-center">
 <% if @recipes.length < 1 %>
   <h2>No Recipe to Display, Create one first!</h2>
 <% end %>
 
 <% @recipes.each_with_index do |recipe, index| %>
-  <div id="<%= index %>">
-    <h2> <%= link_to recipe.name, recipe_path(recipe.id)%> </h2>
-    <% if recipe.user_id == @current_user.id %>
-      <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, form: {  data: { turbo: :false } }%>
+  <div id="<%= index %>" class="d-flex flex-row border border-dark justify-content-center p-3 m-3">
+    <div class="col-4">
+      <h2> <%= link_to recipe.name, recipe_path(recipe.id)%> </h2>
+      <% if recipe.user_id == @current_user.id %>
+      <%= button_to 'Remove', recipe_path(recipe.id), method: :delete, form: {  data: { turbo: :false } },class:"btn btn-danger"%>
     <% end %>
-    <p><%= recipe.description %></p>
+    </div>
+    <div class="col-6 m-3 w-50 d-flex justify-content-center">
+      <p><%= recipe.description %></p>
+    </div>
   </div>
 <% end %>
+</div>
+</div>  
