@@ -4,7 +4,7 @@ RSpec.describe 'Food', type: :system do
   describe 'index page' do
     before(:each) do
       @user = User.create(name: 'Tom', email: 'tom@email.com', password: 'password')
-      @food = Food.create(name: 'Apple', measurement_unit: 'grams', price: 2, quantity: 3, user: @user)
+      @food = Food.create(name: 'Apple', measurement_unit: 'grams', price: 2, quantity: 3, user_id: @user.id)
       visit new_user_session_path
       fill_in 'Email', with: 'tom@email.com'
       fill_in 'Password', with: 'password'
