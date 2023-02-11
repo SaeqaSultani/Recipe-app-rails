@@ -11,13 +11,16 @@
           <%= link_to "Food", foods_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
-            <%= link_to "My Recipe", recipes_path, class:"nav-link"%>
+            <%= link_to "Recipes", recipes_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
             <%= link_to "Add Recipe", new_recipe_path, class:"nav-link"%>
         </li>
         <li class="nav-item">
             <%= link_to "Shopping List", general_shopping_list_index_path, class:"nav-link"%>
+        </li>
+        <li class="nav-item">
+            <%= link_to "Public Recipes", root_path, class:"nav-link"%>
         </li>
       </ul>
         <%= button_to "Logout", destroy_user_session_path, method: :delete, form: {  data: { turbo: :false } }, class:"btn btn-danger" %>
