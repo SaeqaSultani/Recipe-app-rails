@@ -1,0 +1,29 @@
+<div class="container">
+<div class="wrapper text-center">
+  <table class="m-auto border border-slate-500 ">
+    <thead>
+      <tr>
+        <th class="border border-slate-600 p-4"> Food </th>
+        <th class="border border-slate-600 p-4"> Measurement Unit </th>
+        <th class="border border-slate-600 p-4"> Unit Price </th>
+        <th class="border border-slate-600 p-4"> Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @foods.each do |food| %>
+        <tr>
+          <td class="border border-slate-600 p-4"><%= food.name %></td>
+          <td class="border border-slate-600 p-4"><%= food.measurement_unit %></td> 
+          <td class="border border-slate-600 p-4">$<%= food.price %></td>  
+          <td>  <%= button_to 'Delete', food_path(id: food.id), method: :delete,class:"btn btn-danger" %> </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+  <div class="mt-5">
+      <%= link_to 'Add Food', new_food_path, class:'bg-success px-4 py-2 font-semibold text-white inline-flex space-x-2 rounded' %> 
+  </div>
+
+</div>
+</div>

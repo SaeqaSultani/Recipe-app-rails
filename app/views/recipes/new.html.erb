@@ -1,0 +1,30 @@
+<div class="container bg-warning p-3 rounded w-50">
+<div class="wrapper text-center">
+<h1>Add a New Recipe</h1>
+<%= form_with model: @recipe, url: recipes_path   do |form| %>
+    <div class="mb-3">
+     <%= form.label :name ,class: "form-label fw-bold"%><br>
+     <%= form.text_field :name, placeholder: "Enter recipe name",class: "w-50 p-2 rounded" %>
+   </div>
+    <div class="mb-3">
+         <%= form.label :description ,class: "form-label fw-bold"%><br>
+     <%= form.text_area :description, placeholder: "Enter recipe description",class: "w-50 p-2 rounded" %>
+     </div>
+     <div class="mb-3">
+         <%= form.label :preparation_time,class: "form-label fw-bold" %><br>
+     <%= form.text_field :preparation_time,  placeholder: "E.g 1h 30mins",class: "w-50 p-2 rounded" %>
+     </div>
+     <div class="mb-3">
+        <%= form.label :cooking_time,class: "form-label fw-bold" %><br>
+        <%= form.text_field :cooking_time,  placeholder: "E.g 30mins",class: "w-50 p-2 rounded" %>
+     </div>
+     <div class="mb-3">
+      <%= form.label :public,class: "form-label fw-bold" %><br>
+      <%= form.select :public, [[false], [true]]%>
+   </div>
+    <div class="mb-3">
+      <%= form.submit "Add New Recipe",class:"btn btn-primary w-25"%>
+     </div>
+  <% end %>
+</div>
+</div>  

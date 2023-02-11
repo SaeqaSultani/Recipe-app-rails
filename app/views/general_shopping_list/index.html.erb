@@ -1,0 +1,28 @@
+<div class="wrapper text-center">
+  <h2>Shopping List</h2>
+  <div class="d-flex justify-content-center">  
+    <p class="me-5">Amount of food items to buy: <%= @shopping_list.length %></p>
+    <p class="ms-5">Total value of food needed: $<%= @total %> </p>
+  </div>
+</div>
+<div>
+    <table class="m-auto border border-slate-500">
+    <thead>
+      <tr>
+        <th class="border border-slate-600 p-4"> Food </th>
+        <th class="border border-slate-600 p-4"> Quantity </th>
+        <th class="border border-slate-600 p-4"> Price </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @shopping_list.each do |recipe_food| %>
+        <tr>
+          <td class="border border-slate-600 p-4"><%= recipe_food.food.name %></td>
+          <td class="border border-slate-600 p-4"><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td>
+          <td class="border border-slate-600 p-4">$<%= recipe_food.food.price * recipe_food.quantity %></td>  
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+</div>

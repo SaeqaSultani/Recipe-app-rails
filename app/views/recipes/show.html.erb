@@ -1,0 +1,52 @@
+<div class="container p-3 rounded w-50">
+<div class="wrapper">
+<div class='recipe_details'>
+  <h2 class="text-center"> <%= @recipe.name %> </h2>
+  <div class="row text-center">
+  <div class="col-4">
+    <p >Preparetion time: <%= @recipe.preparation_time %></p>
+    <p>Cooking time: <%= @recipe.cooking_time %></p>
+    <p>Steps go here...</p>
+  </div>
+    <div class="col-8">
+     <label for="public"> Public</label>
+    <input type="checkbox" id="public" name="public" <%=@recipe.public && "checked" %>>
+    </div>
+  </div>
+  <div class="row justify-content-center mb-3">
+    <div class="col-6"> <%= link_to 'Generate Shopping List'%></div>
+    <div class="col-4">
+      <% if @recipe.user_id == @current_user.id %>
+      <%= link_to 'Add Ingredient', new_recipe_recipe_food_path(@recipe.id) %>
+      <% end %>
+    </div>
+  </div>
+  <table class="m-auto border border-slate-500">
+    <thead>
+      <tr>
+        <th class="border border-slate-600 p-4"> Food </th>
+        <th class="border border-slate-600 p-4"> Quantity </th>
+        <th class="border border-slate-600 p-4"> Value </th>
+        <th class="border border-slate-600 p-4"> Actions </th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @recipe_foods.each do |recipe_food| %>
+        <tr>
+          <td class="border border-slate-600 p-4"><%= recipe_food.food.name %></td>
+          <td class="border border-slate-600 p-4"><%= recipe_food.quantity %> <%= recipe_food.food.measurement_unit %></td> 
+          <td class="border border-slate-600 p-4">$<%= recipe_food.food.price * recipe_food.quantity %></td>  
+          <td> 
+          <% if @recipe.user_id == @current_user.id %>
+            <%= button_to 'Modify',class:"btn btn-warning" %>
+            <%= button_to 'Remove', recipe_recipe_food_path(@recipe.id, recipe_food.id), method: :delete, form: {  data: { turbo: :false } },class:"btn btn-danger"%>
+            <% end %>
+          </td>
+        </tr>
+      <% end %>
+
+    </tbody>
+  </table>
+</div>
+</div>
+</div>
