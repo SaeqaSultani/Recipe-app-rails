@@ -1,6 +1,10 @@
-<h2>Shopping List</h2>
-<p>Amount of food items to buy: <%= @shopping_list.length %></p>
-<p>Total value of food needed: $<%= @total %> </p>
+<div class="wrapper text-center">
+  <h2>Shopping List</h2>
+  <div class="d-flex justify-content-center">  
+    <p class="me-5">Amount of food items to buy: <%= @shopping_list.length %></p>
+    <p class="ms-5">Total value of food needed: $<%= @total %> </p>
+  </div>
+</div>
 <div>
     <table class="m-auto border border-slate-500">
     <thead>

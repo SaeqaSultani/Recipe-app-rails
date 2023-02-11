@@ -10,13 +10,13 @@
 
   <div class="field">
     <%= f.label :password, class: "text-light form-label fw-bold"%><br />
-    <%= f.password_field :password, autocomplete: "current-password", class: "w-50 p-2 rounded" %>
+    <%= f.password_field :password, autocomplete: "current-password", class: "w-60 p-2 rounded" %>
   </div>
 
   <% if devise_mapping.rememberable? %>
     <div class="field mt-4">
-      <%= f.check_box :remember_me ,class:"col-5"%>
-      <%= f.label :remember_me,class:"col-5 text-light" %>
+      <%= f.check_box :remember_me%>
+      <%= f.label :remember_me, class:"text-light" %>
     </div>
   <% end %>
 
