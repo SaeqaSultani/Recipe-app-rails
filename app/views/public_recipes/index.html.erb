@@ -1,17 +1,24 @@
+<div class="container p-3 rounded w-50">
+<div class="wrapper text-center">
+<p>Public Recipe<p>
 <% if @recipes.length < 1 %>
   <h2>No Public Recipe to Display, Create one first!</h2>
 <% end %>
 
 <% @recipes.each_with_index do |recipe, index| %>
-  <div id="<%= index %>">
+  <div class="d-flex flex-row border border-dark justify-content-center p-3 m-3">
+  <div id="<%= index %>" class="col-4">
     <h2> <%= link_to recipe.name, recipe_path(recipe.id)%> </h2>
     <p>By: <%= recipe.user.name %></p>
-  </div>
-  <div>
-    <p>Total Food Items: <%= @recipe_foods.where(recipe_id: recipe.id).length %></p>
-    <% total = 0 %>
-    <% @recipe_foods.where(recipe_id: recipe.id).each do |recipe_food| total += recipe_food.quantity * recipe_food.food.price %>
-    <% end %>
-    <p>Total Price: $<%= total %></p>
-  </div>
+    </div>
+    <div class="col-4">
+      <p>Total Food Items: <%= @recipe_foods.where(recipe_id: recipe.id).length %></p>
+      <% total = 0 %>
+      <% @recipe_foods.where(recipe_id: recipe.id).each do |recipe_food| total += recipe_food.quantity * recipe_food.food.price %>
+      <% end %>
+      <p>Total Price: $<%= total %></p>
+    </div>
+ </div> 
 <% end %>
+</div>
+</div>

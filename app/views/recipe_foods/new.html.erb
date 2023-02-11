@@ -7,10 +7,10 @@
      <%= form.select :food_id, (@foods.map{|food| [food.name, food.id]}) %>
    </div>
     <div class="mb-3">
-        <%= form.text_field :quantity, placeholder: "Enter ingredient quantity" %>
+        <%= form.text_field :quantity, placeholder: "Enter ingredient quantity",class: "w-100 p-2 rounded" %>
      </div>
     <div class="mb-3">
-      <%= form.submit "Add New Food", class:"bg-red-500 px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded" %>
+      <%= form.submit "Add New Food", class:"btn btn-primary px-4 py-2 font-semibold text-white inline-flex items-center space-x-2 rounded" %>
      </div>
   <% end %>
  </div>
