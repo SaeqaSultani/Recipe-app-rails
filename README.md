@@ -66,7 +66,6 @@ bundle install
 ```
 ruby main.rb
 ```
-
 To get a local copy up and running, follow these steps.
 
 ### Prerequisites
@@ -74,8 +73,6 @@ To get a local copy up and running, follow these steps.
 - IDE / Editor
 - Git 
 - PostgreSQL
-
-
 ### Install & Setup
 
 To setup and install this sample ROR Blog project, follow the below steps:
