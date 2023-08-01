@@ -23,7 +23,6 @@
 **Recipe App** is a simple recipe application created with ruby on rails.
 
 ## 🛠 Built With <a name="built-with"></a>
-
 ### Tech Stack <a name="tech-stack"></a>
 
 <details>
