@@ -41,7 +41,6 @@
 </details>
 
 ### Key Features <a name="key-features"></a>
-
 - **Create Food, Recipe, RecipeFood and User table for the blog**
 - **Save all information in postgres database**
 - **Retrive information from the database**
