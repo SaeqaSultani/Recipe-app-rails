@@ -18,7 +18,6 @@
 
 <!-- PROJECT DESCRIPTION -->
 
-
 # 📖 RAILS RECIPE APP <a name="about-project"></a>
 
 **Recipe App** is a simple recipe application created with ruby on rails.
